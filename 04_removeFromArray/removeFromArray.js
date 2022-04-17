@@ -1,18 +1,26 @@
-const removeFromArray = function(inputArray, removalTarget) {
-    const outputArray = inputArray;
-    let matchFound = false;
-    let i = 0;
-    while (!matchFound) {
-        const currentElement = inputArray[i];
-        matchFound = (removalTarget === currentElement);
-        
-        if (matchFound) {
-            outputArray.splice(i, 1);
-        }
+const removeFromArray = function(inputArray) {
 
-        i++;
+    const removalTargets = Array.from(arguments);
+    removalTargets.shift();
+
+    for (let i = 0; i < removalTargets.length; i++) {
+
+        let currentTarget = removalTargets[i];    
+        
+        let matchFound = false;
+        let j = 0;
+        while (!matchFound && j < inputArray.length) {
+            const currentElement = inputArray[j];
+            matchFound = (currentTarget === currentElement);
+            
+            if (matchFound) {
+                inputArray.splice(j, 1);
+            }
+
+            j++;
+        }
     }
-    return outputArray;
+    return inputArray;
 };
 
 // Do not edit below this line
