@@ -1,7 +1,4 @@
-const removeFromArray = function(inputArray) {
-
-    const removalTargets = Array.from(arguments);
-    removalTargets.shift();
+const removeFromArray = function(inputArray, ...removalTargets) {
 
     for (let i = 0; i < removalTargets.length; i++) {
 
